@@ -2,7 +2,7 @@
 pragma solidity >=0.7.6;
 pragma abicoder v2;
 
-import '@openzeppelin/contracts/utils/Strings.sol';
+import '@openzeppelin/contracts-4/utils/Strings.sol';
 import '@uniswap/v3-core/contracts/libraries/BitMath.sol';
 import 'base64-sol/base64.sol';
 
@@ -247,11 +247,7 @@ library NFTSVG {
         );
     }
 
-    function getCurve(
-        int24 tickLower,
-        int24 tickUpper,
-        int24 tickSpacing
-    ) internal pure returns (string memory curve) {
+    function getCurve(int24 tickLower, int24 tickUpper, int24 tickSpacing) internal pure returns (string memory curve) {
         int24 tickRange = (tickUpper - tickLower) / tickSpacing;
         if (tickRange <= 4) {
             curve = curve1;

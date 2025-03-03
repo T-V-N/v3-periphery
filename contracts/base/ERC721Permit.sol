@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 pragma solidity =0.8.15;
 
-import '@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol';
-import '@openzeppelin/contracts/utils/Address.sol';
+import '@openzeppelin/contracts-4/token/ERC721/extensions/ERC721Enumerable.sol';
+import '@openzeppelin/contracts-4/utils/Address.sol';
 
 import '../libraries/ChainId.sol';
 import '../interfaces/external/IERC1271.sol';
@@ -22,11 +22,7 @@ abstract contract ERC721Permit is BlockTimestamp, ERC721Enumerable, IERC721Permi
     bytes32 private immutable versionHash;
 
     /// @notice Computes the nameHash and versionHash
-    constructor(
-        string memory name_,
-        string memory symbol_,
-        string memory version_
-    ) ERC721(name_, symbol_) {
+    constructor(string memory name_, string memory symbol_, string memory version_) ERC721(name_, symbol_) {
         nameHash = keccak256(bytes(name_));
         versionHash = keccak256(bytes(version_));
     }
